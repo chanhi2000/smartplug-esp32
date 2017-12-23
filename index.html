@@ -1,0 +1,11 @@
+<html lang="en">
+  <head><meta charset="UTF-8"><title>ESP32 System Server</title>
+  <style>@media print {#ghostery-purple-box {display:none !important}}</style>
+  </head>
+  <body><h2>SmartPlug ESP32 WebServer</h2>Click <a href="/H">here</a> to turn the LED on pin 5 on.<br>Click <a href="/L">here</a> to turn the LED on pin 5 off.<br>Set period for STM32 LED blinking: 
+    <form name="period">
+      <input name="period" type="text"><input onclick="changePeriod()" value="change" type="button"><br>
+    </form>
+  </body>
+    <script type="text/javascript">function changePeriod() {    console.log("changePeriod"); }</script>
+</html>
