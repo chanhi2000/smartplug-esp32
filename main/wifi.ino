@@ -66,20 +66,47 @@ void runWebServer()
                 // Check to see if the client request was "GET /H" or "GET /L":
                 if (  currentLine.endsWith("GET /H")  ) 
                 {
-                    digitalWrite(5, HIGH);               // GET /H turns the LED on
+                    digitalWrite(LED_PIN, HIGH);               // GET /H turns the LED on
                 }
                 if (  currentLine.endsWith("GET /L")  ) 
                 {
-                    digitalWrite(5, LOW);                // GET /L turns the LED off
+                    digitalWrite(LED_PIN, LOW);                // GET /L turns the LED off
                 }
                 
                 if (  currentLine.endsWith("GET /period=10")  )
                 {    
-                    Serial1.println("perdiod 10");
+                    Serial2.print("period 5000");
+                    Serial2.println("");
+                    // digitalWrite(LED_PIN2, HIGH);
+                }
+                if (  currentLine.endsWith("GET /period=50")  )
+                {    
+                    Serial2.print("period 2500");
+                    Serial2.println("");
+                    digitalWrite(LED_PIN2, LOW);
                 }
             }
         }
         client.stop();
         Serial.println("Client Disconneccted.");
-    }  
+    }
 }
+
+void setPeriod(String current, int led_num) 
+{
+    if (  current.endsWith("GET /period=10")  )
+    {
+        digitalWrite(LED_PIN2, HIGH);   
+    }
+
+    if (  current.endsWith("GET /period=50")  )
+    {
+        digitalWrite(LED_PIN2, LOW);
+    }
+
+    if (  current.endsWith("GET /period=100")  )
+    {
+        
+    }
+}
+
